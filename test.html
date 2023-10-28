@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Тест Дж. Холланда</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .button-label {
+      display: block;
+      margin-bottom: 10px; /* Перенос строки между вариантами ответов */
+    }
+
+    .button-label input[type="radio"] {
+      display: none;
+    }
+
+    .button-label label {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-label label:hover {
+      background-color: #0056b3;
+    }
+
+    input[type="submit"] {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    #personalityType {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+<h1>Тест Дж. Холланда</h1>
+<p id="text">Ответьте на вопросы, чтобы определить ваш профессиональный тип личности.</p>
+
+<form id="quizForm">
+  <div id="question1">
+    <label for="question1">Вопрос 1: Как вы предпочитаете проводить свободное время?</label>
+    <input type="radio" name="question1" value="R" id="question1R"> Чтение <br>
+    <input type="radio" name="question1" value="I" id="question1I"> Исследование<br>
+    <input type="radio" name="question1" value="A" id="question1A"> Искусство<br>
+    <input type="radio" name="question1" value="S" id="question1S"> Общение<br>
+  </div>
+
+  <div id="question2" style="display: none;">
+    <label for="question2">Вопрос 2: Какие задачи вас больше всего увлекают?</label>
+    <input type="radio" name="question2" value="I" id="question2I"> Интеллектуальные<br>
+    <input type="radio" name="question2" value="S" id="question2S"> Социальные<br>
+    <input type="radio" name="question2" value="E" id="question2E"> Предпринимательские<br>
+    <input type="radio" name="question2" value="C" id="question2C"> Практические<br>
+  </div>
+
+  <div id="question3" style="display: none;">
+    <label for="question3">Вопрос 3: Какие из следующих хобби вам ближе всего?</label>
+    <input type="radio" name="question3" value="A" id="question3A"> Изобразительное искусство<br>
+    <input type="radio" name="question3" value="I" id="question3I"> Чтение и писательство<br>
+    <input type="radio" name="question3" value="E" id="question3E"> Организация мероприятий<br>
+    <input type="radio" name="question3" value="R" id="question3R"> Исследование и научные исследования<br>
+  </div>
+
+  <div id="question4" style="display: none;">
+    <label for="question4">Вопрос 4: Как вы относитесь к работе в команде?</label>
+    <input type="radio" name="question4" value="S" id="question4S"> Обожаю работать в команде<br>
+    <input type="radio" name="question4" value="I" id="question4I"> Предпочитаю работать самостоятельно<br>
+    <input type="radio" name="question4" value="E" id="question4E"> Люблю руководить командой<br>
+    <input type="radio" name="question4" value="R" id="question4R"> Могу работать как в команде, так и самостоятельно<br>
+  </div>
+
+  <div id="question5" style="display: none;">
+    <label for="question5">Вопрос 5: Как вы реагируете на неожиданные изменения в планах?</label>
+    <input type="radio" name="question5" value="R" id="question5R"> Мне это не нравится<br>
+    <input type="radio" name="question5" value="I" id="question5I"> Я быстро адаптируюсь<br>
+    <input type="radio" name="question5" value="A" id="question5A"> Интересно попробовать что-то новое<br>
+    <input type="radio" name="question5" value="S" id="question5S"> Я предпочитаю, чтобы всё шло по плану<br>
+  </div>
+
+  <div id="question6" style="display: none;">
+    <label for="question6">Вопрос 6: Как вы предпочитаете проводить выходные?</label>
+    <input type="radio" name="question6" value="R" id="question6R"> Активно, занимаясь спортом<br>
+    <input type="radio" name="question6" value="I" id="question6I"> Исследуя новые места<br>
+    <input type="radio" name="question6" value="A" id="question6A"> Посещая галереи и театры<br>
+    <input type="radio" name="question6" value="S" id="question6S"> Собираясь с друзьями и семьей<br>
+  </div>
+
+  <div id="question7" style="display: none;">
+    <label for="question7">Вопрос 7: Какие виды литературы вас больше всего интересуют?</label>
+    <input type="radio" name="question7" value="I" id="question7I"> Научная и популярно-научная<br>
+    <input type="radio" name="question7" value="A" id="question7A"> Художественная и классическая<br>
+    <input type="radio" name="question7" value="E" id="question7E"> Бизнес и саморазвитие<br>
+    <input type="radio" name="question7" value="R" id="question7R"> Техническая и профессиональная<br>0
+  </div>
+
+  <input type="submit" id="button_next_question" value="Далее">
+
+</form>
+
+<div id="result" style="display: none;">
+  <h2>Ваш профессиональный тип личности:</h2>
+  <p id="personalityType"></p>
+</div>
+
+<script>
+  const quizForm = document.getElementById('quizForm');
+  const resultDiv = document.getElementById('result');
+  const button_next_question = document.getElementById('button_next_question')
+  const text = document.getElementById('text');
+  const personalityType = document.getElementById('personalityType');
+
+
+
+  const questions = [
+    {
+      id: "question1",
+      text: "Как вы предпочитаете проводить свободное время?",
+      options: [
+        { value: "R", label: "Чтение" },
+        { value: "I", label: "Исследование" },
+        { value: "A", label: "Искусство" },
+        { value: "S", label: "Общение" },
+      ],
+    },
+    {
+      id: "question2",
+      text: "Какие задачи вас больше всего увлекают?",
+      options: [
+        { value: "I", label: "Интеллектуальные" },
+        { value: "S", label: "Социальные" },
+        { value: "E", label: "Предпринимательские" },
+        { value: "C", label: "Практические" },
+    ],
+  },
+  {
+    id: "question3",
+            text: "Какие из следующих хобби вам ближе всего?",
+          options: [
+    { value: "A", label: "Изобразительное искусство" },
+    { value: "I", label: "Чтение и писательство" },
+    { value: "E", label: "Организация мероприятий" },
+    { value: "R", label: "Исследование и научные исследования" },
+  ],
+  },
+  {
+    id: "question4",
+            text: "Как вы относитесь к работе в команде?",
+          options: [
+    { value: "S", label: "Обожаю работать в команде" },
+    { value: "I", label: "Предпочитаю работать самостоятельно" },
+    { value: "E", label: "Люблю руководить командой" },
+    { value: "R", label: "Могу работать как в команде, так и самостоятельно" },
+  ],
+  },
+  {
+    id: "question5",
+            text: "Как вы реагируете на неожиданные изменения в планах?",
+          options: [
+    { value: "R", label: "Мне это не нравится" },
+    { value: "I", label: "Я быстро адаптируюсь" },
+    { value: "A", label: "Интересно попробовать что-то новое" },
+    { value: "S", label: "Я предпочитаю, чтобы всё шло по плану" },
+  ],
+  },
+  {
+    id: "question6",
+            text: "Как вы предпочитаете проводить выходные?",
+          options: [
+    { value: "R", label: "Активно, занимаясь спортом" },
+    { value: "I", label: "Исследуя новые места" },
+    { value: "A", label: "Посещая галереи и театры" },
+    { value: "S", label: "Собираясь с друзьями и семьей" },
+  ],
+  },
+  {
+    id: "question7",
+            text: "Какие виды литературы вас больше всего интересуют?",
+          options: [
+    { value: "I", label: "Научная и популярно-научная" },
+    { value: "A", label: "Художественная и классическая" },
+    { value: "E", label: "Бизнес и саморазвитие" },
+    { value: "R", label: "Техническая и профессиональная" },
+  ],
+  },
+  // Добавьте больше вопросов по аналогии
+  ];
+
+  let currentQuestion = 0;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const answers = Array.from(quizForm.elements).filter(
+            (element) => element.type === "radio" && element.checked
+    );
+    if (answers.length < 1) {
+      alert("Пожалуйста, выберите ответ.");
+      return;
+    }
+
+    // Скрываем предыдущий вопрос
+    const previousQuestion = document.getElementById(
+            questions[currentQuestion].id
+    );
+    previousQuestion.style.display = "none";
+
+    // Переходим к следующему вопросу
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+      // Показываем следующий вопрос
+      const nextQuestion = document.getElementById(
+              questions[currentQuestion].id
+      );
+      nextQuestion.style.display = "block";
+    } else {
+      // Все вопросы заданы, показываем результат
+      showResult(answers);
+      button_next_question.style.display = "none";
+      text.style.display = "none";
+quizForm.style.display="none";
+    }
+  });
+
+  function showResult(answers) {
+    const personalityTypes = {
+      R: "Реалистический ",
+      I: "Интеллектуальный",
+      A: "Артистический ",
+      S: "Социальный",
+      E: "Предприимчивый",
+      C: "Конвенциальный",
+    };
+
+    const typeCounts = {};
+    answers.forEach((answer) => {
+      typeCounts[answer.value] = (typeCounts[answer.value] || 0) + 1;
+    });
+
+    const dominantType = Object.keys(typeCounts).reduce((a, b) =>
+            typeCounts[a] > typeCounts[b] ? a : b
+    );
+
+    resultDiv.style.display = "block";
+    personalityType.textContent = personalityTypes[dominantType];
+  }
+</script>
+</body>
+</html>
